@@ -43,9 +43,17 @@ export const getUsers = async () => {
     });
 };
 
-export const updateUserRole = async (id: string, role: string) => {
+export const updateUserRole = async (id: string, role: string, status: string) => {
     return prisma.user.update({
         where: { id },
-        data: { role: role as any },
+        data: { role: role as any, status: status as any },
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            status: true,
+            createdAt: true,
+        },
     });
 };

@@ -1,5 +1,5 @@
 {
-  "name": "chat-backend",
+  "name": "finance-dashboard-backend",
   "version": "1.0.0",
   "description": "",
   "main": "dist/server.js",

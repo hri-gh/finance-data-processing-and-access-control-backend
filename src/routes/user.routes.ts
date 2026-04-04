@@ -6,7 +6,7 @@ import { validate } from "../middleware/validate.middleware";
 
 import {
     CreateUserSchema,
-    UpdateUserRoleSchema,
+    UpdateUserSchema,
 } from "../validators/user.validator";
 
 const router = Router();
@@ -14,8 +14,8 @@ const router = Router();
 // Admin only
 router.post(
     "/",
-    // authMiddleware,
-    // checkRole(["ADMIN"]),
+    authMiddleware,
+    checkRole(["ADMIN"]),
     validate(CreateUserSchema),
     userController.createUser
 );
@@ -28,10 +28,10 @@ router.get(
 );
 
 router.patch(
-    "/:id/role",
+    "/:id",
     authMiddleware,
     checkRole(["ADMIN"]),
-    validate(UpdateUserRoleSchema),
+    validate(UpdateUserSchema),
     userController.updateUserRole
 );
 

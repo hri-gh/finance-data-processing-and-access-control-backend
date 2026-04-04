@@ -1,0 +1,329 @@
+{
+  "info": {
+    "_postman_id": "f26568ef-72b5-42db-8271-75fa8b515249",
+    "name": "Finance Dashboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "27271268"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Hri\",\n  \"email\": \"hri@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"VIEWER\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Users",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Admin\",\n  \"email\": \"admin@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"ADMIN\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User Role/Status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n  \"role\": \"ANALYST\",\n  \"status\": \"INACTIVE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/6695dc01-e0ed-4beb-9945-7de3a3f8c385",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "6695dc01-e0ed-4beb-9945-7de3a3f8c385"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Records",
+      "item": [
+        {
+          "name": "Create Record",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"amount\": 600.00,\n    \"type\": \"EXPENSE\",\n    \"category\": \"Education\",\n    \"note\": \"Online course subscription\",\n    \"date\": \"2026-04-10\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/records",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "records"
+              ]
+            },
+            "description": "Generated from cURL: curl -X POST {{baseUrl}}/api/records"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/records",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "records"
+              ]
+            },
+            "description": "Generated from cURL: curl -X GET {{baseUrl}}/api/records"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Record",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/records/0d231901-a053-4ee7-936e-e3645381937e",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "records",
+                "0d231901-a053-4ee7-936e-e3645381937e"
+              ]
+            },
+            "description": "Generated from cURL: curl -X GET {{baseUrl}}/api/records/:id"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Record",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"amount\":15500,\n    \"type\":\"EXPENSE\",\n    \"category\":\"Shopping\",\n    \"note\":\"Spend on Shopping\"\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/records/0d231901-a053-4ee7-936e-e3645381937e",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "records",
+                "0d231901-a053-4ee7-936e-e3645381937e"
+              ]
+            },
+            "description": "Generated from cURL: curl -X PATCH {{baseUrl}}/api/records/:id"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Record",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/records/0d231901-a053-4ee7-936e-e3645381937e",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "records",
+                "0d231901-a053-4ee7-936e-e3645381937e"
+              ]
+            },
+            "description": "Generated from cURL: curl -X DELETE {{baseUrl}}/api/records/:id"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/records/summary/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "records",
+                "summary",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Category Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/records/summary/category",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "records",
+                "summary",
+                "category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Recent Records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/records/recent",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "records",
+                "recent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/records/filter?type=EXPENSE&category=Shopping",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "records",
+                "filter"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "EXPENSE"
+                },
+                {
+                  "key": "category",
+                  "value": "Shopping"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

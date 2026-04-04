@@ -7,6 +7,7 @@ export const CreateUserSchema = z.object({
     role: z.enum(["ADMIN", "ANALYST", "VIEWER"]),
 });
 
-export const UpdateUserRoleSchema = z.object({
-    role: z.enum(["ADMIN", "ANALYST", "VIEWER"]),
+export const UpdateUserSchema = z.object({
+    role: z.enum(["ADMIN", "ANALYST", "VIEWER"]).optional(),
+    status: z.enum(["ACTIVE", "INACTIVE"]).optional(),
 });

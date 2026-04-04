@@ -7,7 +7,7 @@ export const logger = {
         console.warn(`[WARN] ${msg}`)
     },
     error: (msg: string, error?: unknown) => {
-        console.error(`[ERROR] ${msg}`)
+        console.error(`[ERROR]: ${msg}`)
         if (error) console.error(error)
     },
 }

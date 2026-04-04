@@ -17,10 +17,7 @@ export const getUsers = async (
     try {
         const users = await userService.getUsers();
 
-        res.json({
-            success: true,
-            data: users,
-        });
+        res.json(new ApiResponse(users, "Users fetched successfully"));
     } catch (error) {
         next(error);
     }
@@ -32,15 +29,12 @@ export const updateUserRole = async (
     next: NextFunction
 ) => {
     try {
-        const { role } = req.body;
+        const { role, status } = req.body;
         const { id } = req.params as { id: string };
 
-        const updatedUser = await userService.updateUserRole(id, role);
+        const updatedUser = await userService.updateUserRole(id, role, status);
 
-        res.json({
-            success: true,
-            data: updatedUser,
-        });
+        res.json(new ApiResponse(updatedUser, "User updated successfully"));
     } catch (error) {
         next(error);
     }

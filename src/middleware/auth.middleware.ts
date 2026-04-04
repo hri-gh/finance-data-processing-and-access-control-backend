@@ -3,7 +3,7 @@ import { ApiError } from "../utils/ApiError";
 import jwt from "jsonwebtoken";
 import { asyncHandler } from "../utils/asyncHandler";
 import { Request, Response, NextFunction } from "express";
-import conf from "../conf/conf";
+import conf from "../config";
 
 interface JwtPayload {
     userId: string;
@@ -19,7 +19,7 @@ export const authMiddleware = asyncHandler(async (req: Request, res: Response, n
 
     const decoded = jwt.verify(token, conf.JWT_SECRET) as JwtPayload;
 
-    // Optional DB verification (you can keep or remove)
+    // DB verification (FUTURE ACTION: Can be improved by adding Cache storage and TTL)
     const user = await prisma.user.findUnique({
         where: { id: decoded.userId },
         select: { id: true, role: true },
