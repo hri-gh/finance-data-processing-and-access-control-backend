@@ -6,10 +6,9 @@ import { prisma } from "../src/config/prisma"
 async function main() {
     console.log("🌱 Seeding database...");
 
-    // 🔐 Hash password
     const hashedPassword = await bcrypt.hash("admin123", 10);
 
-    // 👤 Create Admin User
+    // Create Admin User
     const admin = await prisma.user.upsert({
         where: { email: "admin@example.com" },
         update: {},
