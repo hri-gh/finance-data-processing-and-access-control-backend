@@ -81,7 +81,6 @@ npm install
 DATABASE_URL=your_database_url
 JWT_SECRET=your_secret_key
 PORT=5000
-CORS_ORIGIN=*
 ```
 
 ### 4. Run database migrations
@@ -90,12 +89,25 @@ CORS_ORIGIN=*
 npx prisma migrate dev
 ```
 
-### 5. Start the server
+### 5. Seed Data
+
+To populate the database with sample data:
+
+```bash
+npx prisma db seed
+```
+
+### 👉 Admin Credentials:
+
+- **Email: `admin@example.com`**
+- **Password: `admin123`**
+
+
+### 6. Start the server
 
 ```bash
 npm run dev
 ```
-
 ---
 
 ### 🔐 Authentication
