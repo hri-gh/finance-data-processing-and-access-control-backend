@@ -89,7 +89,13 @@ PORT=5000
 npx prisma migrate dev
 ```
 
-### 5. Seed Data
+### 5. Generate Prisma Client
+
+```bash
+npx prisma generate
+```
+
+### 6. Seed Data
 
 To populate the database with sample data:
 
@@ -103,7 +109,7 @@ npx prisma db seed
 - **Password: `admin123`**
 
 
-### 6. Start the server
+### 7. Start the server
 
 ```bash
 npm run dev
